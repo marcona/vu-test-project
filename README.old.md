@@ -1,5 +1,3 @@
-# https://github.com/vuejs/awesome-vue#source-code-editing
-
 # vu-test-project
 <<<<<<< HEAD
 

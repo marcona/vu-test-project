@@ -1,6 +1,6 @@
 <template>
   <main-layout>
-    <p>About page</p>
+    <p>Apex Charts</p>
     <apex-charts/>
     <apex-charts-donut/>
   </main-layout>

@@ -3,7 +3,9 @@
     <ul>
       <li>
         <v-link href="/">Google Charts</v-link>
-        <v-link href="/about">About</v-link>
+      </li>
+      <li>
+        <v-link href="/apex">Apex Charts</v-link>
       </li>
     </ul>
 

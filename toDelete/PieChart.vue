@@ -30,7 +30,7 @@ export default {
       chartOptions: {
           title: 'Google Charts: Team Bugs',
           pieHole: '0.3',
-		  colors: ['blue','red', 'orange', 'yellow']
+		  colors: ['blue','red', 'orange', 'yellow']   
       }
     }
   }
