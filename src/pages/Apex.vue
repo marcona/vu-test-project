@@ -1,8 +1,14 @@
 <template>
   <main-layout>
     <p>Apex Charts</p>
-    <apex-charts/>
-    <apex-charts-donut/>
+    <div class="graph-container">
+    <div>
+      <apex-charts/>
+    </div>
+    <div>
+      <apex-charts-donut/>
+    </div>
+  </div>
   </main-layout>
 </template>
 
@@ -19,3 +25,19 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.graph-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.left {
+    display: flex;
+    flex-direction: column;
+}
+.right {
+  display: flex;
+  flex-direction: column;
+}
+</style>
