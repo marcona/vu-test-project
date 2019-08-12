@@ -2,7 +2,6 @@ import Vue from 'vue'
 import routes from './routes'
 
 Vue.config.productionTip = false
-Vue.config.debug = true
 
 const app = new Vue({
   el: '#app',
@@ -11,11 +10,10 @@ const app = new Vue({
   },
   computed: {
     ViewComponent () {
-     const matchingView = routes[this.currentRoute]
+      const matchingView = routes[this.currentRoute]
       return matchingView
-        ? require('./pages/' + matchingView + '.vue').default
-        : require('./pages/404.vue').default
-
+        ? require('./pages/' + matchingView + '.vue')
+        : require('./pages/404.vue')
     }
   },
   render (h) {
@@ -26,5 +24,3 @@ const app = new Vue({
 window.addEventListener('popstate', () => {
   app.currentRoute = window.location.pathname
 })
-
-
