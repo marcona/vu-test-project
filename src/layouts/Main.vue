@@ -2,10 +2,13 @@
   <div class="container">
     <ul>
       <li>
-        <v-link href="/">Google Charts</v-link>
+        <monLink href="/">Google Charts</monLink>
       </li>
       <li>
-        <v-link href="/apex">Apex Charts</v-link>
+        <monLink href="/apex">Apex Charts</monLink>
+      </li>
+      <li>
+        <monLink href="/dell">Demo</monLink>
       </li>
     </ul>
 
@@ -18,7 +21,7 @@ import VLink from '../components/VLink.vue'
 
 export default {
   components: {
-    VLink
+    monLink: VLink
   }
 }
 </script>
