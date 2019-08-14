@@ -12,9 +12,17 @@ export default {
   components: {
     apexcharts: VueApexCharts
   },
+  created() {
+    this.$http.get('jira/issues')
+        .then(
+            response => response.json(),
+            response => alert("error")
+        )
+        .then(series => this.series = series)
+  },
   data: function () {
     return {
-      series: [10, 30, 40, 20],
+      series: [],
       chartOptions: {
         labels: ['Blue Team', 'Green Team', 'Orange Team', 'Red Team'],
         plotOptions: {

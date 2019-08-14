@@ -27,6 +27,14 @@ export default {
         data: [30, 40, 45, 50, 49, 60, 70, 91]
       }]
     }
+  },
+  created() {
+    this.$http.get('products')
+        .then(
+            response => response.json(),
+            response => alert("error")
+        )
+        .then(products => this.products = products);
   }
 }
 </script>

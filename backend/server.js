@@ -3,37 +3,38 @@ const cors = require('cors');
 const products = require('./products.js');
 const bodyParser = require('body-parser');
 const app = express();
+const jira=[10, 10, 60, 20];
 
 function getProduct(productId) {
     let product = null;
-    
+
     products.forEach((p) => {
         if (p.id == productId) {
             product = p;
         }
     });
-    
+
     return product;
 }
 
 function deleteReview(productId, reviewId) {
     let product = getProduct(productId);
-    
+
     if (product) {
         let index = -1;
-        
+
         for (let i = 0; i < product.reviews.length && index == -1; i++) {
             if (product.reviews[i].id == reviewId) {
                 index = i;
             }
         }
-        
+
         if (index != -1) {
             product.reviews.splice(index, 1);
             return true;
         }
     }
-    
+
     return false;
 }
 
@@ -51,13 +52,17 @@ app.listen(3000, function() {
     console.log('Listening on port 3000...');
 });
 
+app.get('/jira/issues', (req, res) => {
+    res.json(jira);
+});
+
 app.get('/products', (req, res) => {
     res.json(products);
 });
 
 app.get('/products/:id', (req, res) => {
     let product = getProduct(req.params.id);
-    
+
     if (product) {
         res.json(product);
     } else {
@@ -67,7 +72,7 @@ app.get('/products/:id', (req, res) => {
 
 app.post('/products/:productId/reviews', (req, res) => {
     let product = getProduct(req.params.productId);
-    
+
     if (product) {
         let newReview = req.body;
         newReview.id = uuid();
