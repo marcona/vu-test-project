@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
+    "serve": "concurrently --kill-others \"npm run vue-server\" \"npm run backend-server\"",
+    "vue-server": "vue-cli-service serve",
+    "backend-server": "node backend/server.js",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit"
@@ -13,9 +15,13 @@
     "core-js": "^2.6.5",
     "vue": "^2.6.10",
     "vue-apexcharts": "^1.4.0",
-    "vue-google-charts": "^0.3.2"
+    "vue-google-charts": "^0.3.2",
+    "cors": "^2.8.1",
+    "express": "^4.15.2"
   },
   "devDependencies": {
+    "concurrently": "^3.4.0",
+    "body-parser": "^1.17.2",
     "@vue/cli-plugin-babel": "^3.8.0",
     "@vue/cli-plugin-eslint": "^3.8.0",
     "@vue/cli-plugin-unit-mocha": "^3.8.0",
