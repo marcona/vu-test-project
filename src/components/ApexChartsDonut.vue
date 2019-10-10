@@ -12,13 +12,14 @@ export default {
   components: {
     apexcharts: VueApexCharts
   },
-  created() {
+  created () {
+    //this.chartOptions.plotOptions.pie.donut.total.label = 'Issues'
     this.$http.get('jira/issues')
-        .then(
-            response => response.json(),
-            response => alert("error")
-        )
-        .then(series => this.series = series)
+      .then(
+        response => response.json(),
+        response => alert('error')
+      )
+      .then(series => this.series = series)
   },
   data: function () {
     return {
@@ -45,7 +46,7 @@ export default {
                 },
                 total: {
                   show: true,
-                  label: 'Total',
+                  label: 'Issues',
                   color: '#373d3f',
                   formatter: function (w) {
                     return w.globals.seriesTotals.reduce((a, b) => {
